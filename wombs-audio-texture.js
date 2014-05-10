@@ -11,12 +11,23 @@
 
 
     this.analyser = analyser;
-    var array = analyser.array;
-    var length = analyser.array.length;
+
+    this.reset(); 
+
+    this.addToUpdateArray( function(){
+
+      this.texture._needsUpdate = true;
+
+    });
+
+  }
+
+
+  AudioTexture.prototype.reset = function(){
 
     this.analyser.texture = new THREE.DataTexture(
-      this.array,
-      length,
+      this.analyser.array,
+      this.analyser.array.length,
       1,
       THREE.RGBAFormat,
       THREE.UnsignedIntType
@@ -24,19 +35,21 @@
 
     this.texture = this.analyser.texture;
 
-    this.addToUpdateArray( function(){
+  };
 
-      this.texture.needsUpdate = true;
 
-    });
+  AudioTexture.createDebugMesh = function( scene ){
 
-  }
-
-  AudioTexture.createDebugMesh = function(){
-
-    var mat = THREE.MeshBasicMaterial({
+    var mat = new THREE.MeshBasicMaterial({
       map: this.analyser.texture
     });
+
+    var geo = new THREE.BoxGeometry( 10 , 10 , 10 );
+
+
+    var mesh = new THREE.Mesh( geo , mat );
+
+    scene.add( mesh );
 
 
   }
