@@ -1,0 +1,27 @@
+{
+  "name": "wombs-audio-texture",
+  "version": "0.0.0",
+  "description": "Creating a THREE.JS Texture from an analayser node",
+  "main": "wombs-audio-texture.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cabbibo/wombs-audio-texture"
+  },
+  "keywords": [
+    "audio",
+    "texture",
+    "analyser",
+    "web",
+    "audio",
+    "api"
+  ],
+  "author": "@cabbibo",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/cabbibo/wombs-audio-texture/issues"
+  },
+  "homepage": "https://github.com/cabbibo/wombs-audio-texture"
+}
