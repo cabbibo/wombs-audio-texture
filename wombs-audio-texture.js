@@ -5,11 +5,10 @@
   var Component = require( 'wombs-component'  );
 
   
-  var mutate = {};
- 
+  var mutation = {};
 
   //resets the 
-  mutate.reset = function(){
+  mutation.reset = function(){
 
     var data = this.processAudio();
 
@@ -29,7 +28,7 @@
 
   };
 
-  mutate.processAudio = function(){
+  mutation.processAudio = function(){
 
     var width = this.analyser.array.length;
 
@@ -48,14 +47,14 @@
 
   }
 
-  mutate.update = function(){
+  mutation.update = function(){
 
     this.texture.image.data = this.processAudio(); 
     this.texture.needsUpdate = true;
 
   }
 
-  mutate.createDebugMesh =  function( scene ){
+  mutation.createDebugMesh =  function( scene ){
 
     var mat = new THREE.MeshBasicMaterial({
       map: this.texture
@@ -84,7 +83,7 @@
 
   AudioTexture.prototype =  _.extend( 
     Component.prototype,
-    mutate 
+    mutation 
   );
 
   function AudioTexture( analyser ){
